@@ -26,19 +26,18 @@ phpcs_command="php $phpcs_local_exec"
 # Check vendor/bin/phpunit
 phpcs_vendor_command="vendor/bin/phpcs"
 phpcs_global_command="phpcs"
+
 if [ -f "$phpcs_vendor_command" ]; then
-	phpcs_command=$phpcs_vendor_command
+    phpcs_command=$phpcs_vendor_command
+elif type -P 'phpcs'; then
+    phpcs_command='phpcs'
+elif type -P 'phpcs.phar'; then
+    phpcs_command='phpcs.phar'
+elif [ -f "$phpcs_local_exec" ]; then
+    phpcs_command=$phpcs_command
 else
-    if hash phpcs 2>/dev/null; then
-        phpcs_command=$phpcs_global_command
-    else
-        if [ -f "$phpcs_local_exec" ]; then
-            phpcs_command=$phpcs_command
-        else
-            echo "No valid PHP Codesniffer executable found! Please have one available as either $phpcs_vendor_command, $phpcs_global_command or $phpcs_local_exec"
-            exit 1
-        fi
-    fi
+    echo "No valid PHP Codesniffer executable found! Please have one available as either $phpcs_vendor_command, $phpcs_global_command or $phpcs_local_exec"
+    exit 1
 fi
 
 phpcs_files_to_check="${@:2}"
