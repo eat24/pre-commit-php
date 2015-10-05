@@ -21,8 +21,15 @@
   files: \.php$
 
 - id: php-cs
-  name: PHP Codesniffer
+  name: PHP CodeSniffer
   description: Run php codesniffer against all staged files.
   entry: pre_commit_hooks/php-cs.sh
+  language: script
+  files: \.php$
+
+- id: php-cbf
+  name: PHP Code Beautifier and Fixer
+  description: Run PHP Code Beautifier and Fixer against all staged files.
+  entry: pre_commit_hooks/php-cbf.sh
   language: script
   files: \.php$
