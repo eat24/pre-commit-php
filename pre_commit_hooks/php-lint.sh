@@ -23,9 +23,9 @@ check_args_flag_first='first'
 check_all=true
 
 # Echo Colors
-msg_color_magenta='\e[1;35m'
-msg_color_yellow='\e[0;33m'
-msg_color_none='\e[0m' # No Color
+msg_color_magenta='\x1B[1;35m'
+msg_color_yellow='\x1B[0;33m'
+msg_color_none='\x1B[0m' # No Color
 
 # Where to stop looking for file paths in the argument list
 arg_lookup_start=1
