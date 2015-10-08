@@ -23,8 +23,8 @@ echo -en "${msg_color_yellow}Begin PHP Codesniffer ...${msg_color_none} \n"
 phpcs_local_exec="phpcs.phar"
 phpcs_command="php $phpcs_local_exec"
 
-# Check vendor/bin/phpunit
-phpcs_vendor_command="vendor/bin/phpcs"
+# Check vendor/bin/phpcs
+phpcs_vendor_command="php vendor/bin/phpcs"
 phpcs_global_command="phpcs"
 
 if [ -f "$phpcs_vendor_command" ]; then
