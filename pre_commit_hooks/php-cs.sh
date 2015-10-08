@@ -24,11 +24,11 @@ phpcs_local_exec="phpcs.phar"
 phpcs_command="php $phpcs_local_exec"
 
 # Check vendor/bin/phpcs
-phpcs_vendor_command="php vendor/bin/phpcs"
+phpcs_vendor_command="vendor/bin/phpcs"
 phpcs_global_command="phpcs"
 
 if [ -f "$phpcs_vendor_command" ]; then
-    phpcs_command=$phpcs_vendor_command
+    phpcs_command="php $phpcs_vendor_command"
 elif type -P 'phpcs'; then
     phpcs_command='phpcs'
 elif type -P 'phpcs.phar'; then
