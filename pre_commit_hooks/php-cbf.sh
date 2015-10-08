@@ -30,7 +30,7 @@ if [ -f "$phpcbf_vendor_command" ]; then
 	phpcbf_command="php $phpcbf_vendor_command"
 else
     if hash phpcbf 2>/dev/null; then
-        phpcbf_command=$phpcbf_global_command
+        phpcbf_command="php $phpcbf_global_command"
     else
         if [ -f "$phpcbf_local_exec" ]; then
             phpcbf_command=$phpcbf_command
