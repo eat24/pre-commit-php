@@ -27,7 +27,7 @@ phpcbf_command="php $phpcbf_local_exec"
 phpcbf_vendor_command="vendor/bin/phpcbf"
 phpcbf_global_command="phpcbf"
 if [ -f "$phpcbf_vendor_command" ]; then
-	phpcbf_command=$phpcbf_vendor_command
+	phpcbf_command="php $phpcbf_vendor_command"
 else
     if hash phpcbf 2>/dev/null; then
         phpcbf_command="php $phpcbf_global_command"
